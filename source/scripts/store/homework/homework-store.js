@@ -35,7 +35,7 @@ var HomeworkSidebarStore = Reflux.createStore({
   onInit: function () {
     async.waterfall([
       (done) => {
-        superAgent.get('/homework/get-list')
+        superAgent.get('/api/homework/get-list')
             .set('Content-Type', 'application/json')
             .end(done);
       },
@@ -55,7 +55,7 @@ var HomeworkSidebarStore = Reflux.createStore({
       },
 
       (query, done) => {
-        superAgent.get('/homework/quiz')
+        superAgent.get('/api/homework/quiz')
             .set('Content-Type', 'application/json')
             .query(query)
             .end(done);
@@ -73,7 +73,7 @@ var HomeworkSidebarStore = Reflux.createStore({
   onCreateTask: function (data) {
     async.waterfall([
       (done) => {
-        superAgent.post('homework/save')
+        superAgent.post('/api/homework/save')
             .set('Content-Type', 'application/json')
             .send(data)
             .end(done);
@@ -109,7 +109,7 @@ var HomeworkSidebarStore = Reflux.createStore({
       },
 
       (query, done) => {
-        superAgent.get('/homework/quiz')
+        superAgent.get('/api/homework/quiz')
             .set('Content-Type', 'application/json')
             .query(query)
             .end(done);

@@ -12,7 +12,7 @@ var HomeworkDetailsStore = Reflux.createStore({
 
   onLoadUserDetail: function (userId) {
 
-    var url = 'user/' + userId + '/homework-details';
+    var url = '/api/user/' + userId + '/homework-details';
 
     superAgent.get(url)
         .set('Content-Type', 'application/json')

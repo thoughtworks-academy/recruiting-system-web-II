@@ -67,7 +67,7 @@ var LogicPuzzleStore = Reflux.createStore({
   },
 
   onSaveUserAnswer: function (callback) {
-    superAgent.post('/logic-puzzle/save')
+    superAgent.post('/api/logic-puzzle/save')
         .set('Content-Type', 'application/json')
         .send({userAnswer: _answer, orderId: _currentIndex})
         .use(errorHandler)
@@ -87,7 +87,7 @@ var LogicPuzzleStore = Reflux.createStore({
       (callback) => {
         this.onSaveUserAnswer(callback);
       },(res,callback) =>{
-        superAgent.post('/logic-puzzle')
+        superAgent.post('/api/logic-puzzle')
             .set('Content_Type', 'application/json')
             .use(errorHandler)
             .end(callback);
@@ -100,7 +100,7 @@ var LogicPuzzleStore = Reflux.createStore({
   },
 
   updateItem: function (callback) {
-    superAgent.get('/logic-puzzle')
+    superAgent.get('/api/logic-puzzle')
         .set('Content-Type', 'application/json')
         .query({
           orderId: _currentIndex

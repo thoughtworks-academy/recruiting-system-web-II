@@ -11,7 +11,7 @@ var passwordResetStore = Reflux.createStore({
   listenables: passwordResetActions,
 
   onReset: function (newPassword,token) {
-    request.post('/password/reset')
+    request.post('/api/password/reset')
         .set('Content-Type', 'application/json')
         .send({
           newPassword: newPassword,

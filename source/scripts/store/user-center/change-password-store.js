@@ -13,7 +13,7 @@ var ChangePasswordStore = Reflux.createStore({
 
   onChangePassword: function (passwordInfo) {
     this.trigger({isRespond: true});
-    request.put('/user-detail/change-password')
+    request.put('/api/user-detail/change-password')
         .set('Content-Type', 'application/json')
         .send({
           data: passwordInfo

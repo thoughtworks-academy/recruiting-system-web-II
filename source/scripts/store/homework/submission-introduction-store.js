@@ -13,7 +13,7 @@ var submissionIntroductionStore = Reflux.createStore({
     if (url.indexOf('https://') === -1) {
       url = 'https://' + url;
     }
-    superAgent.get('/homework/get-branches')
+    superAgent.get('/api/homework/get-branches')
         .set('Content-Type', 'application/json')
         .query({url: url})
         .use(errorHandler)

@@ -11,7 +11,7 @@ var TimerStore = Reflux.createStore({
 
   onGetRemainTime: function () {
     superAgent
-        .get('/timer/remain-time')
+        .get('/api/timer/remain-time')
         .set('Content-Type', 'application/json')
         .use(errorHandler)
         .end((err, res) => {

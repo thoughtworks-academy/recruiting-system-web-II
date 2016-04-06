@@ -15,7 +15,7 @@ var RegisterStore = Reflux.createStore({
 
   onCheckEmail: function (value, done) {
     return request
-        .get('/register/validate-email')
+        .get('/api/register/validate-email')
         .set('Content-Type', 'application/json')
         .query({
           email: value
@@ -32,7 +32,7 @@ var RegisterStore = Reflux.createStore({
 
   onCheckMobilePhone: function (value, done) {
     return request
-        .get('/register/validate-mobile-phone')
+        .get('/api/register/validate-mobile-phone')
         .set('Content-Type', 'application/json')
         .query({
           mobilePhone: value
@@ -49,7 +49,7 @@ var RegisterStore = Reflux.createStore({
 
   onRegister: function (mobilePhone, email, password) {
     request
-        .post('/register')
+        .post('/api/register')
         .set('Content-Type', 'application/json')
         .send({
           mobilePhone: mobilePhone,
@@ -78,7 +78,7 @@ var RegisterStore = Reflux.createStore({
   onInitialUserQuiz: function () {
     async.series({
       initializeQuizzes: (done) => {
-        request.get('/user-initialization/initializeQuizzes')
+        request.get('/api/user-initialization/initializeQuizzes')
             .set('Content-Type', 'application/json')
             .use(errorHandler)
             .end(function (err) {

@@ -11,7 +11,7 @@ var passwordRetrieveStore = Reflux.createStore({
   listenables: passwordRetrieveActions,
 
   onRetrieve: function (email) {
-    request.get('/password/retrieve')
+    request.get('/api/password/retrieve')
         .set('Content-Type', 'application/json')
         .query({
           email: email

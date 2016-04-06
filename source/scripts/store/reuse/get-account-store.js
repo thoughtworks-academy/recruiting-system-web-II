@@ -11,7 +11,7 @@ var GetAccountStore = Reflux.createStore({
   listenables: [GetAccountActions],
 
   onLoadAccount:function() {
-    request.get('/reuse/account')
+    request.get('/api/reuse/account')
         .set('Content-Type', 'application/json')
         .use(errorHandler)
         .end((err, res) => {
