@@ -10,7 +10,6 @@ var pathToBootstarp = path.resolve(node_modules, 'bootstrap/dist/');
 
 var config = {
   entry: {
-    "group-router": './source/scripts/routers/group-router.jsx',
     "group": './source/scripts/group.jsx',
     "deadline": './source/scripts/deadline.jsx',
     "style-guide": './source/scripts/style-guide.jsx',
