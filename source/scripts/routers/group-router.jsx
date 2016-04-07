@@ -65,25 +65,6 @@ function asyncRenderAction(action, callBack) {
         callBack(element);
       });
       break;
-    case 'member':
-      require.ensure([
-        "../component/group/group-member.component.jsx",
-        "../component/group/group-sidebar.component.jsx"
-      ], function (require) {
-        var GroupMember = require("../component/group/group-member.component.jsx");
-        var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
-        element =
-            <div>
-              <GroupSidebar />
-              <div className="col-md-9">
-                <div id="content">
-                  <GroupMember />
-                </div>
-              </div>
-            </div>;
-        callBack(element);
-      });
-      break;
     case 'manage':
       require.ensure([
         "../component/group/group-sidebar.component.jsx",
@@ -105,10 +86,10 @@ function asyncRenderAction(action, callBack) {
       break;
     default:
       require.ensure([
-        "../component/group/group-error.component.jsx"
+        "../component/group/group-homepage.component.jsx"
       ], function (require) {
-        var GroupError = require("../component/group/group-error.component.jsx");
-        element = <GroupError />;
+        var GroupHomepage = require("../component/group/group-homepage.component.jsx");
+        element = <GroupHomepage />;
         callBack(element);
       });
   }
