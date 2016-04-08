@@ -3,7 +3,7 @@
 var Tabs = require('react-bootstrap/lib/Tabs');
 var Tab = require('react-bootstrap/lib/Tab');
 
-var CustomizeTabs = createClass({
+var CustomizeTabs = React.createClass({
 
   getInitialState: function () {
     return {
@@ -17,7 +17,7 @@ var CustomizeTabs = createClass({
       return <Tab key={idx} eventKey={idx} title={item}>{this.props.children[idx]}</Tab>
     });
     return (
-        <div className="col-md-9 col-sm-9 col-xs-12">
+        <div className="customizeTabs col-md-9 col-sm-9 col-xs-12">
           <div className="content">
             <Tabs defaultActiveKey={0} animation={false} getShowStatus={true} ref="tabs">
               {tabHtml}

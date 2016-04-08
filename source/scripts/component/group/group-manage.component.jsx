@@ -1,13 +1,17 @@
 'use strict';
 
-var GroupTitle = require("../style-guide/group-title.component.jsx");
-
+var CustomizeTabs = require('../style-guide/customizeTabs.component.jsx');
+var ManageIndex = require('./group-manage-index.component.jsx');
+var tabNames = ['基本设置', '试卷管理', '成员管理', '讨论管理'];
 var GroupManage = React.createClass ({
 
   render() {
     return (
+        <CustomizeTabs tabNames={tabNames}>
+          <ManageIndex />
+          <ManageIndex />
+        </CustomizeTabs>
 
-        <GroupTitle titleName="群组管理"/>
     );
   }
 });

@@ -1,0 +1,24 @@
+div.customizeTabs{
+  .content {
+    ul.nav-tabs{
+      margin-bottom: 15px;
+    }
+    .nav-tabs > li {
+      &:focus {outline: none;}
+      a{
+        &:hover {
+          border-color: transparent;
+          background-color: transparent;
+        }
+        &:focus {
+          outline: none;
+          color: #555;
+          cursor: default;
+          background-color: #fff;
+          border: 1px solid #ddd;
+          border-bottom-color: transparent;
+        }
+      }
+    }
+  }
+}
