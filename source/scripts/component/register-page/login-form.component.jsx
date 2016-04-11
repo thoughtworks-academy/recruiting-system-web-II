@@ -122,7 +122,7 @@ var LoginForm = React.createClass({
     var classString = 'col-md-7 logon-form-container' + (this.state.isLoginState ? '' : ' hide');
     return (
         <div id="logon" className={classString}>
-          <h4 className="welcome">欢迎登录思沃学院</h4>
+          <h4 className="welcome">欢迎登录校招特训营</h4>
           <div className={'lose' + (this.state.loginFailed === false ? ' hide' : '')} name="loginFailed">用户名或密码错误</div>
           <form action="dashboard.html"  onSubmit={this.login}>
             <div className="form-group">

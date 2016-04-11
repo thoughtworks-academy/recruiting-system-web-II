@@ -136,7 +136,7 @@ var RegisterForm = React.createClass({
 
     return (
         <div id="register" className={classString}>
-          <h4 className="welcome">欢迎注册思沃学院</h4>
+          <h4 className="welcome">欢迎注册校招特训营</h4>
 
           <form action='user-center.html' onSubmit={this.register}>
             <div className="form-group">

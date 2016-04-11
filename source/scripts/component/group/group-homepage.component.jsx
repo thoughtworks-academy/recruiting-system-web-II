@@ -63,7 +63,7 @@ var GroupHomepage = React.createClass({
           <GroupTitle titleName="我的群组"/>
           <div className="col-md-12 col-sm-12 col-xs-12">
             <div className="col-md-3  col-sm-4 col-xs-6">
-              <GroupAvatar groupName="思沃特训营" groupAvatar={require('../../../images/1.pic_hd.jpg')}/>
+              <GroupAvatar groupName="校招特训营" groupAvatar={require('../../../images/1.pic_hd.jpg')}/>
             </div>
             {groupList}
           </div>
