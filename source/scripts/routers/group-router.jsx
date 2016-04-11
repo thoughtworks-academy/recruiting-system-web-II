@@ -3,6 +3,7 @@
 
 var Navigation = require('../component/navigation/navigation.component.jsx');
 var Account = require('../component/reuse/get-account.component.jsx');
+var page = require('page');
 
 function asyncRenderAction(action, callBack) {
   var element;
@@ -84,7 +85,7 @@ function asyncRenderAction(action, callBack) {
         callBack(element);
       });
       break;
-    default:
+    case undefined:
       require.ensure([
         "../component/group/group-homepage.component.jsx"
       ], function (require) {
@@ -92,6 +93,9 @@ function asyncRenderAction(action, callBack) {
         element = <GroupHomepage />;
         callBack(element);
       });
+      break;
+    default:
+      page.redirect('../404');
   }
 }
 
@@ -118,6 +122,7 @@ function render(action, next) {
 module.exports = {
   render: function (ctx, next) {
     var action = ctx.params.action;
+    console.log(action);
     render(action, next);
   }
 };
