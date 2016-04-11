@@ -4,6 +4,7 @@ var CustomizeTabs = require('../style-guide/customizeTabs.component.jsx');
 var ManageIndex = require('./group-manage-index.component.jsx');
 var ManagePaper = require('./group-manage-paper.component.jsx');
 var MangeMember = require('./group-manage-member.component.jsx');
+var MangeVerify = require('./group-manage-verify.component.jsx');
 
 var GroupManage = React.createClass ({
 
@@ -66,6 +67,7 @@ var GroupManage = React.createClass ({
           <ManageIndex />
           <ManagePaper groupName={this.state.groupName} papers={this.state.papers} />
           <MangeMember members={this.state.members}/>
+          <MangeVerify members={this.state.members}/>
         </CustomizeTabs>
 
     );

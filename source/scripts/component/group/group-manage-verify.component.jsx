@@ -4,11 +4,11 @@ var GroupTitle = require('../style-guide/group-title.component.jsx');
 
 var ManageMember = React.createClass({
 
-  getInitialState: function (){
+  getInitialState: function () {
     return {
       tableContent: this.props.members,
-      isBanned: false,
-      isDeleted: false
+      isVerified: false,
+      isIgnored: false
     }
   },
 
@@ -20,18 +20,16 @@ var ManageMember = React.createClass({
             <td>{item.name}</td>
             <td>{item.phone}</td>
             <td>{item.email}</td>
-            {this.state.isDeleted ? <td>已删除</td> :
-             <td>
-              {this.state.isBanned ? '已禁言' : <a href="#">禁言</a>}
-              <a href="#">删除</a>
-             </td>
+            {this.state.isVerified || this.state.isIgnored ?
+                (this.state.isVerified ? <td>已处理</td> : <td>已通过</td>) :
+                <td><a href="#">通过</a><a href="#">忽略</a></td>
             }
           </tr>
       )
     });
     return (
         <div>
-          <GroupTitle titleName='群成员列表'/>
+          <GroupTitle titleName='待审核列表'/>
           <table className="table table-hover">
             <thead>
             <tr>
