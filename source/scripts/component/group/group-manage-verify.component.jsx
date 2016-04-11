@@ -22,7 +22,7 @@ var ManageMember = React.createClass({
             <td>{item.email}</td>
             {this.state.isVerified || this.state.isIgnored ?
                 (this.state.isVerified ? <td>已处理</td> : <td>已通过</td>) :
-                <td><a href="#">通过</a><a href="#">忽略</a></td>
+                <td><button className="text-primary">通过</button><button className="text-primary">忽略</button></td>
             }
           </tr>
       )

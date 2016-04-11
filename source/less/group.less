@@ -32,10 +32,15 @@ body{
 table {
   margin-left: 10px;
   text-align: left;
-  tr > td > a {
+  tr > td > button {
+    border:none;
+    background-color: transparent;
+    &:hover {
+      text-decoration: underline;
+    }
     margin-left: 20px;
   }
-  tr > td > a:nth-child(1) {
+  tr > td > button:nth-child(1) {
     margin-left: 0;
   }
 }

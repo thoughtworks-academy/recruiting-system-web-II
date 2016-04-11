@@ -17,7 +17,7 @@ var ManageDiscussion = React.createClass ({
             <th scope="row"><input type="checkbox" value={index +1} />{index + 1}</th>
             <td>{item.author}</td>
             <td>{item.content}</td>
-            {this.state.isDeleted ? <td>已删除</td> : <td><a href="#">删除</a></td>}
+            {this.state.isDeleted ? <td>已删除</td> : <td><button className="text-primary">删除</button></td>}
           </tr>
       )
     });

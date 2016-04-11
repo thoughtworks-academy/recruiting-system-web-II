@@ -23,7 +23,7 @@ var Paper = React.createClass({
             </div>
           <div className={"col-md-12" + (this.state.role === '1' ? '' : ' hide')}>
             <div className={this.state.isPublished ? 'hide' : ''}>未发布：
-              <a href="#">点击发布</a>
+              <button className="text-primary">点击发布</button>
             </div>
             <div className={this.state.isPublished ? '' : ' hide'}>已发布
             </div>
@@ -31,9 +31,9 @@ var Paper = React.createClass({
             <div>已发布个数：{this.state.publishedNumber}</div>
           </div>
           <div className="button-bottom">
-            <a href="#" className={"text-warning" + (this.state.role === '1' ? '' : ' unvisible')}><b>编辑</b></a>
-            <a href="#" className={"text-info" + (this.state.role === '1' ? '' : ' unvisible')}><b>导出成绩</b></a>
-            <a href="#" className={"text-success" + (this.state.isFinished ? ' unvisible' : '')}><b>开始答题</b></a>
+            <button className={"text-warning" + (this.state.role === '1' ? '' : ' unvisible')}><b>编辑</b></button>
+            <button className={"text-primary" + (this.state.role === '1' ? '' : ' unvisible')}><b>导出成绩</b></button>
+            <button className={"text-success" + (this.state.isFinished ? ' unvisible' : '')}><b>开始答题</b></button>
           </div>
         </div>
     )

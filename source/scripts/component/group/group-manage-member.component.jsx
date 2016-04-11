@@ -22,8 +22,8 @@ var ManageMember = React.createClass({
             <td>{item.email}</td>
             {this.state.isDeleted ? <td>已删除</td> :
              <td>
-              {this.state.isBanned ? '已禁言' : <a href="#">禁言</a>}
-              <a href="#">删除</a>
+              {this.state.isBanned ? '已禁言' : <button className="text-primary">禁言</button>}
+              <button className="text-primary" >删除</button>
              </td>
             }
           </tr>
