@@ -122,7 +122,6 @@ function render(action, next) {
 module.exports = {
   render: function (ctx, next) {
     var action = ctx.params.action;
-    console.log(action);
     render(action, next);
   }
 };

@@ -10,7 +10,6 @@ var DiscussSubject = require('./component/style-guide/discuss-subject.component.
 var DiscussList = require('./component/style-guide/discuss-list.component.jsx');
 var Paper = require('./component/style-guide/paper.component.jsx');
 var AddSection = require('./component/style-guide/add-section.component.jsx');
-var Table = require('./component/style-guide/table.component.jsx');
 var InviteLink = require('./component/style-guide/invite-link.component.jsx');
 var PageMachine = require('./component/style-guide/page-machine.component.jsx');
 var GroupAvatar = require('./component/style-guide/group-avatar.component.jsx');
@@ -26,7 +25,6 @@ require('../less/group-title.less');
 require('../less/list-group.less');
 require('../less/group-event-discuss-list.less');
 require('../less/discuss-frame.less');
-require('../less/add-paper.less');
 require('../less/discuss-subject.less');
 require('../less/paper.less');
 require('../less/add-section.less');
@@ -50,7 +48,6 @@ ReactDom.render(
       <DiscussList />
       <Paper item=""/>
       <AddPaper />
-      <Table />
       <InviteLink />
       <PageMachine />
       <GroupAvatar />
