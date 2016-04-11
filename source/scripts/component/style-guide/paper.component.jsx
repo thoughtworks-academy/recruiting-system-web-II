@@ -1,7 +1,7 @@
 'use strict';
 
 var Paper = React.createClass({
-  getInitialState(){
+  getInitialState: function() {
     return {
       paperName: this.props.item.paperName || 'PaperNamePaperName',
       isMarked: this.props.item.isMarked,
