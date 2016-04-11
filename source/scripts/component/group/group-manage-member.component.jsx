@@ -15,7 +15,7 @@ var ManageMember = React.createClass({
   render () {
     var tableBody = this.state.tableContent.map((item, index) => {
       return (
-          <tr>
+          <tr key={index}>
             <th scope="row">{index + 1}</th>
             <td>{item.name}</td>
             <td>{item.phone}</td>

@@ -5,6 +5,7 @@ var ManageIndex = require('./group-manage-index.component.jsx');
 var ManagePaper = require('./group-manage-paper.component.jsx');
 var MangeMember = require('./group-manage-member.component.jsx');
 var MangeVerify = require('./group-manage-verify.component.jsx');
+var MangeDiscussion = require('./group-manage-discussion.component.jsx');
 
 var GroupManage = React.createClass ({
 
@@ -57,6 +58,36 @@ var GroupManage = React.createClass ({
           phone: '13111113333',
           email: 'wwww@qq.com'
         }
+      ],
+      preMembers: [
+        {
+          name: '张三',
+          phone: '13111113333',
+          email: 'wwww@qq.com'
+        },
+        {
+          name: '张三',
+          phone: '13111113333',
+          email: 'wwww@qq.com'
+        },
+        {
+          name: '张三',
+          phone: '13111113333',
+          email: 'wwww@qq.com'
+        }
+      ],
+      subjects: [
+        {
+          author: '张三',
+          content: '法师打发司盛世嫡妃... ... '
+        },
+        {
+          author: '张三',
+          content: '法师打发司盛世嫡妃... ... '
+        },{
+          author: '张三',
+          content: '法师打发司盛世嫡妃... ... '
+        }
       ]
     }
   },
@@ -66,8 +97,9 @@ var GroupManage = React.createClass ({
         <CustomizeTabs tabNames={this.state.tabNames}>
           <ManageIndex />
           <ManagePaper groupName={this.state.groupName} papers={this.state.papers} />
-          <MangeMember members={this.state.members}/>
-          <MangeVerify members={this.state.members}/>
+          <MangeMember members={this.state.members} />
+          <MangeVerify preMembers={this.state.preMembers} />
+          <MangeDiscussion subjects={this.state.subjects} />
         </CustomizeTabs>
 
     );
