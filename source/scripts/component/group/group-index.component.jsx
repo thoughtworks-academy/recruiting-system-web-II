@@ -21,7 +21,7 @@ var GroupIndex = React.createClass({
   },
 
   componentWillMount: function (){
-    GroupActions.loadIndex();
+    GroupActions.loadIndex(this.props.groupHash);
   },
 
   render() {
@@ -30,12 +30,16 @@ var GroupIndex = React.createClass({
         <div>
           <div className="col-md-9">
             <GroupTitle titleName="群组公告" />
-            <TextBox content={this.state.announcement} readonly={true} />
+            <TextBox content={this.state.announcement}
+                     readonly={true} />
             <GroupTitle titleName="群组事件" />
             <GroupEvent events={this.state.groupEvents}/>
           </div>
           <div className="col-md-3 group-icon">
-            <GroupAvatar groupName="前端学习群" groupAvatar={require('../../../images/1.pic_hd.jpg')}/>
+            <GroupAvatar groupName="前端学习群"
+                         groupAvatar={require('../../../images/1.pic_hd.jpg')}
+                         groupHash={this.props.groupHash} />
+
             <p>试卷:{this.state.paperNumber}张</p>
             <p>人数:{this.state.memberNumber}人</p>
           </div>

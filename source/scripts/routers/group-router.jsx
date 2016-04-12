@@ -5,7 +5,7 @@ var Navigation = require('../component/navigation/navigation.component.jsx');
 var Account = require('../component/reuse/get-account.component.jsx');
 var page = require('page');
 
-function asyncRenderAction(action, callBack) {
+function asyncRenderAction(hash, action, callBack) {
   var element;
 
   switch (action) {
@@ -18,10 +18,10 @@ function asyncRenderAction(action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar />
+              <GroupSidebar action="index" hash={hash} />
               <div className="col-md-9">
                 <div id="content">
-                  <GroupIndex />
+                  <GroupIndex groupHash={hash}/>
                 </div>
               </div>
             </div>;
@@ -37,7 +37,7 @@ function asyncRenderAction(action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar />
+              <GroupSidebar action="paper" hash={hash} />
               <div className="col-md-9">
                 <div id="content">
                   <GroupPapers />
@@ -56,7 +56,7 @@ function asyncRenderAction(action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar />
+              <GroupSidebar action="discussion" hash={hash} />
               <div className="col-md-9">
                 <div id="content">
                   <GroupDiscussion />
@@ -75,7 +75,7 @@ function asyncRenderAction(action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar />
+              <GroupSidebar action="manage" hash={hash} />
               <div className="col-md-9">
                 <div id="content">
                   <GroupManage />
@@ -99,9 +99,9 @@ function asyncRenderAction(action, callBack) {
   }
 }
 
-function render(action, next) {
+function render(hash, action, next) {
 
-  asyncRenderAction(action, function (innerElement) {
+  asyncRenderAction(hash, action, function (innerElement) {
     var content =
         <div>
           <header>
@@ -122,6 +122,7 @@ function render(action, next) {
 module.exports = {
   render: function (ctx, next) {
     var action = ctx.params.action;
-    render(action, next);
+    var hash = ctx.params.groupHash;
+    render(hash, action, next);
   }
 };
