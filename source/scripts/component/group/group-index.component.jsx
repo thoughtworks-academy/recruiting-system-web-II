@@ -16,29 +16,32 @@ var GroupIndex = React.createClass({
       announcement: '',
       paperNumber: 0,
       memberNumber: 0,
-      groupEvents: []
+      groupEvents: [],
+      groupName:'',
+      avatar:'',
+      isAnnouncePublished: true
     }
   },
 
   componentWillMount: function (){
-    GroupActions.loadIndex(this.props.groupHash);
+    GroupActions.loadIndex(this.props.groupId);
   },
 
   render() {
-    console.log(this.state.announcement);
+
     return (
         <div>
           <div className="col-md-9">
             <GroupTitle titleName="群组公告" />
-            <TextBox content={this.state.announcement}
+            <TextBox content={this.state.isAnnouncePublished ? this.state.announcement : ''}
                      readonly={true} />
             <GroupTitle titleName="群组事件" />
             <GroupEvent events={this.state.groupEvents}/>
           </div>
           <div className="col-md-3 group-icon">
-            <GroupAvatar groupName="前端学习群"
-                         groupAvatar={require('../../../images/1.pic_hd.jpg')}
-                         groupHash={this.props.groupHash} />
+            <GroupAvatar groupName={this.state.groupName}
+                         groupAvatar={this.state.avatar}
+                         groupId={this.props.groupId} />
 
             <p>试卷:{this.state.paperNumber}张</p>
             <p>人数:{this.state.memberNumber}人</p>

@@ -11,21 +11,21 @@ var GroupHomepage = React.createClass({
         {
           groupName: '校招特训营',
           groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupHash: '323232'
+          groupId: '1'
         },
         {
           groupName: 'js学习',
           groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupHash: '123321'
+          groupId: '2'
         }, {
           groupName: 'java学习',
           groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupHash: '121212'
+          groupId: '3'
         },
         {
           groupName: 'java学习',
           groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupHash: '444222'
+          groupId: '4'
         }
       ],
       papers: [
@@ -56,7 +56,7 @@ var GroupHomepage = React.createClass({
           <div className="col-md-3 col-sm-4 col-xs-6"  key={index}>
             <GroupAvatar groupName={group.groupName}
                          groupAvatar={group.groupAvatar}
-                         groupHash={group.groupHash}
+                         groupId={group.groupId}
             />
           </div>
       )

@@ -5,7 +5,7 @@ var Navigation = require('../component/navigation/navigation.component.jsx');
 var Account = require('../component/reuse/get-account.component.jsx');
 var page = require('page');
 
-function asyncRenderAction(hash, action, callBack) {
+function asyncRenderAction(id, action, callBack) {
   var element;
 
   switch (action) {
@@ -18,10 +18,10 @@ function asyncRenderAction(hash, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="index" hash={hash} />
+              <GroupSidebar action="index" groupId={id} />
               <div className="col-md-9">
                 <div id="content">
-                  <GroupIndex groupHash={hash}/>
+                  <GroupIndex groupId={id}/>
                 </div>
               </div>
             </div>;
@@ -37,7 +37,7 @@ function asyncRenderAction(hash, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="paper" hash={hash} />
+              <GroupSidebar action="paper" groupId={id} />
               <div className="col-md-9">
                 <div id="content">
                   <GroupPapers />
@@ -56,7 +56,7 @@ function asyncRenderAction(hash, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="discussion" hash={hash} />
+              <GroupSidebar action="discussion" groupId={id} />
               <div className="col-md-9">
                 <div id="content">
                   <GroupDiscussion />
@@ -75,7 +75,7 @@ function asyncRenderAction(hash, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="manage" hash={hash} />
+              <GroupSidebar action="manage" groupId={id} />
               <div className="col-md-9">
                 <div id="content">
                   <GroupManage />
@@ -99,9 +99,9 @@ function asyncRenderAction(hash, action, callBack) {
   }
 }
 
-function render(hash, action, next) {
+function render(id, action, next) {
 
-  asyncRenderAction(hash, action, function (innerElement) {
+  asyncRenderAction(id, action, function (innerElement) {
     var content =
         <div>
           <header>
@@ -122,7 +122,7 @@ function render(hash, action, next) {
 module.exports = {
   render: function (ctx, next) {
     var action = ctx.params.action;
-    var hash = ctx.params.groupHash;
-    render(hash, action, next);
+    var id = ctx.params.groupId;
+    render(id, action, next);
   }
 };
