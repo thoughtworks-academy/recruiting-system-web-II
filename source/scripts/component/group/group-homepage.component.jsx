@@ -9,15 +9,23 @@ var GroupHomepage = React.createClass({
     return {
       groups: [
         {
+          groupName: '校招特训营',
+          groupAvatar: require('../../../images/1.pic_hd.jpg'),
+          groupHash: '323232'
+        },
+        {
           groupName: 'js学习',
-          groupAvatar: require('../../../images/1.pic_hd.jpg')
+          groupAvatar: require('../../../images/1.pic_hd.jpg'),
+          groupHash: '123321'
         }, {
           groupName: 'java学习',
-          groupAvatar: require('../../../images/1.pic_hd.jpg')
+          groupAvatar: require('../../../images/1.pic_hd.jpg'),
+          groupHash: '121212'
         },
         {
           groupName: 'java学习',
-          groupAvatar: require('../../../images/1.pic_hd.jpg')
+          groupAvatar: require('../../../images/1.pic_hd.jpg'),
+          groupHash: '444222'
         }
       ],
       papers: [
@@ -46,7 +54,10 @@ var GroupHomepage = React.createClass({
     var groupList = this.state.groups.map((group, index) => {
       return (
           <div className="col-md-3 col-sm-4 col-xs-6"  key={index}>
-            <GroupAvatar groupName={group.groupName} groupAvatar={group.groupAvatar}/>
+            <GroupAvatar groupName={group.groupName}
+                         groupAvatar={group.groupAvatar}
+                         groupHash={group.groupHash}
+            />
           </div>
       )
     });
@@ -62,9 +73,6 @@ var GroupHomepage = React.createClass({
         <div>
           <GroupTitle titleName="我的群组"/>
           <div className="col-md-12 col-sm-12 col-xs-12">
-            <div className="col-md-3  col-sm-4 col-xs-6">
-              <GroupAvatar groupName="校招特训营" groupAvatar={require('../../../images/1.pic_hd.jpg')}/>
-            </div>
             {groupList}
           </div>
 

@@ -1,17 +1,10 @@
 'use strict';
 
 var TextBox = React.createClass({
-
-  getInitialState: function () {
-    return {
-      content: this.props.content
-    }
-  },
-
   render() {
     return (
         <textarea className="textarea"
-                  value={this.state.content}
+                  value={this.props.content}
                   readOnly={this.props.readonly ? 'readonly' : ''}/>
     );
   }
