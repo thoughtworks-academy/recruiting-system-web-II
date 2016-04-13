@@ -2,16 +2,21 @@
 
 var AddGroup = React.createClass({
 
+  handleClick: function (){
+
+  },
+
   render () {
     return (
         <div>
           <div className="col-md-3 col-sm-4 col-xs-6 text-center">
-            <div className="avatar"><a href="#">
+            <div className="avatar"><button onClick={this.handleClick} >
               <span><i className="fa fa-plus text-success" /></span>
-            </a></div>
-            <div><a href="#">
+            </button></div>
+            <div className="avatar-name"><button className="text-primary"
+                                                 onClick={this.handleClick} >
               添加群组
-            </a></div>
+            </button></div>
           </div>
         </div>
     );

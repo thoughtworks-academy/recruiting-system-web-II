@@ -3,6 +3,7 @@
 var GroupTitle = require('../style-guide/group-title.component.jsx');
 var GroupAvatar = require('../style-guide/group-avatar.component.jsx');
 var Paper = require('../style-guide/paper.component.jsx');
+var AddGroup = require('../style-guide/add-group.component.jsx');
 var GroupHomepageAction = require('../../actions/group/group-actions.js');
 var GroupHomepageStore = require('../../store/group/group-store.js');
 var Reflux = require('reflux');
@@ -13,6 +14,7 @@ var GroupHomepage = React.createClass({
   getInitialState(){
     return {
       groups:[],
+      role: this.props.role || '2',
       papers: [
         {
           paperName:'pos 无尽版',
@@ -61,6 +63,7 @@ var GroupHomepage = React.createClass({
           <GroupTitle titleName="我的群组"/>
           <div className="col-md-12 col-sm-12 col-xs-12">
             {groupList}
+            {this.state.role === '1' ? <AddGroup /> : null}
           </div>
 
           <GroupTitle titleName="我关注的试卷"/>
