@@ -46,6 +46,15 @@ var GroupStore = Reflux.createStore({
           return;
         }
       })
+  },
+
+  onCreateGroup: function (){
+   superagent.post('/api/group/create')
+       .set('Content-Type', 'application/json')
+       .use(errorHandler)
+       .end((err, res) => {
+
+       })
   }
 });
 

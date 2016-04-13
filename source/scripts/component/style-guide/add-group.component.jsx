@@ -3,7 +3,7 @@
 var AddGroup = React.createClass({
 
   handleClick: function (){
-
+    this.props.createGroup();
   },
 
   render () {
