@@ -12,27 +12,7 @@ var GroupHomepage = React.createClass({
 
   getInitialState(){
     return {
-      groups: [
-        {
-          groupName: '校招特训营',
-          groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupId: '1'
-        },
-        {
-          groupName: 'js学习',
-          groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupId: '2'
-        }, {
-          groupName: 'java学习',
-          groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupId: '3'
-        },
-        {
-          groupName: 'java学习',
-          groupAvatar: require('../../../images/1.pic_hd.jpg'),
-          groupId: '4'
-        }
-      ],
+      groups:[],
       papers: [
         {
           paperName:'pos 无尽版',
@@ -62,9 +42,9 @@ var GroupHomepage = React.createClass({
     var groupList = this.state.groups.map((group, index) => {
       return (
           <div className="col-md-3 col-sm-4 col-xs-6"  key={index}>
-            <GroupAvatar groupName={group.groupName}
-                         groupAvatar={group.groupAvatar}
-                         groupId={group.groupId} />
+            <GroupAvatar groupName={group.name}
+                         groupAvatar={group.avatar}
+                         groupId={group.id} />
           </div>
       )
     });
