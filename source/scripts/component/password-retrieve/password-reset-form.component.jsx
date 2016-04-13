@@ -13,7 +13,6 @@ var getError = require('../../../../mixin/get-error');
 
 
 var passwordResetForm = React.createClass({
-  mixins: [Reflux.connect(PasswordResetStore), Reflux.connect(PasswordStore)],
 
   getInitialState: function () {
     return {

@@ -3,8 +3,13 @@
 var GroupTitle = require('../style-guide/group-title.component.jsx');
 var GroupAvatar = require('../style-guide/group-avatar.component.jsx');
 var Paper = require('../style-guide/paper.component.jsx');
+var GroupHomepageAction = require('../../actions/group/group-actions.js');
+var GroupHomepageStore = require('../../store/group/group-store.js');
+var Reflux = require('reflux');
 
 var GroupHomepage = React.createClass({
+  mixins: [Reflux.connect(GroupHomepageStore)],
+
   getInitialState(){
     return {
       groups: [
@@ -50,14 +55,16 @@ var GroupHomepage = React.createClass({
       ]
     }
   },
+  componentDidMount: function() {
+    GroupHomepageAction.loadGroup();
+  },
   render(){
     var groupList = this.state.groups.map((group, index) => {
       return (
           <div className="col-md-3 col-sm-4 col-xs-6"  key={index}>
             <GroupAvatar groupName={group.groupName}
                          groupAvatar={group.groupAvatar}
-                         groupId={group.groupId}
-            />
+                         groupId={group.groupId} />
           </div>
       )
     });
