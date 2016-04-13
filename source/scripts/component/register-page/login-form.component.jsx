@@ -124,7 +124,7 @@ var LoginForm = React.createClass({
         <div id="logon" className={classString}>
           <h4 className="welcome">欢迎登录校招特训营</h4>
           <div className={'lose' + (this.state.loginFailed === false ? ' hide' : '')} name="loginFailed">用户名或密码错误</div>
-          <form action="dashboard.html"  onSubmit={this.login}>
+          <form action="/group"  onSubmit={this.login}>
             <div className="form-group">
               <input className="form-control" type="text" placeholder="请输入邮箱或手机号" name="email"
                      onBlur={this.validate}

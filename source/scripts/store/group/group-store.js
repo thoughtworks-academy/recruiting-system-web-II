@@ -10,7 +10,7 @@ var GroupStore = Reflux.createStore({
   listenables: [GroupActions],
 
   onLoadIndex: function (id) {
-    superagent.get('/api/group/info')
+    supergent.get('/api/group/info')
         .set('Content-Type', 'application/json')
         .query({groupId: id})
         .use(errorHandler)
@@ -35,7 +35,6 @@ var GroupStore = Reflux.createStore({
       .set('Content-Type', 'application/json')
       .use(errorHandler)
       .end((err, res) => {
-        console.log(res);
         if (!res.body) {
           return;
         } else if (res.body.status === constant.httpCode.OK) {
