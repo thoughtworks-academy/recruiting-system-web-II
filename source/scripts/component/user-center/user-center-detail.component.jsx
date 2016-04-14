@@ -108,7 +108,7 @@ var UserDetail = React.createClass({
       name: this.state.name,
       gender: this.state.gender,
       major: this.state.major,
-      degree: this.state.degree,
+      degree: this.state.degree
     };
 
     if (this.checkInfo()) {
