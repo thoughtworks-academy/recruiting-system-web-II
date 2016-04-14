@@ -46,6 +46,8 @@ var GroupHomepage = React.createClass({
   },
 
   render(){
+    console.log(this.state.role);
+    console.log("=====================");
     var groupList = this.state.groups.map((group, index) => {
       return (
           <div className="col-md-3 col-sm-4 col-xs-6"  key={index}>

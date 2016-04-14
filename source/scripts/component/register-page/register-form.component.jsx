@@ -138,7 +138,7 @@ var RegisterForm = React.createClass({
         <div id="register" className={classString}>
           <h4 className="welcome">欢迎注册校招特训营</h4>
 
-          <form action='user-center.html' onSubmit={this.register}>
+          <form action='/user-center' onSubmit={this.register}>
             <div className="form-group">
               <input className="form-control" type="text" placeholder="请输入手机号" name="mobilePhone" ref="mobilePhone"
                      onBlur={this.validate} />

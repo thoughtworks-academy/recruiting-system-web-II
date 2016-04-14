@@ -91,7 +91,7 @@ var RegisterStore = Reflux.createStore({
       }
     }, function (err, data) {
       if(data.initializeQuizzes) {
-        page('user-center.html');
+        page('/user-center');
       } else {
         console.log(err);
       }

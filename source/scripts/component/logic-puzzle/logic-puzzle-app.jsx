@@ -37,7 +37,7 @@ var LogicPuzzle = React.createClass({
                 时间到,已提交.
               </Modal.Body>
               <Modal.Footer>
-                <Button href="dashboard.html">确定</Button>
+                <Button href="/dashboard">确定</Button>
               </Modal.Footer>
             </Modal>
           </div>

@@ -94,7 +94,7 @@ var LogicPuzzleStore = Reflux.createStore({
       }
     ],function(err,res){
       if (res.statusCode === constant.httpCode.OK) {
-        page('dashboard.html');
+        page('/dashboard');
       }
     });
   },

@@ -32,7 +32,7 @@ var Info = React.createClass({
                   <span>我们会在之后的几个工作日之内通知您,请注意留意您的邮箱.</span>
                 </div>
           }
-          <p><a href="dashboard.html">点击返回</a></p>
+          <p><a href="/dashboard">点击返回</a></p>
         </div>
     );
   }
