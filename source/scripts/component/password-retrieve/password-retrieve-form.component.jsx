@@ -65,7 +65,7 @@ var passwordRetrieveForm = React.createClass({
   },
 
   back: function() {
-    page('register.html');
+    page('/join');
   },
 
   render: function () {
