@@ -17,7 +17,7 @@ var config = {
     "index": "./source/scripts/index.jsx",
     "logic-puzzle": "./source/scripts/logic-puzzle.jsx",
     "homework": "./source/scripts/homework.jsx",
-    "register": "./source/scripts/register.jsx",
+    "join": "./source/scripts/register.jsx",
     "start": "./source/scripts/start.jsx",
     "user-center": './source/scripts/user-center.jsx',
     "dashboard": './source/scripts/dashboard.jsx',
@@ -116,7 +116,7 @@ function htmlwebpackPluginBuilder(fileName, deps) {
 }
 
 config.plugins.push(htmlwebpackPluginBuilder('index.html', ['index.css', 'vendors', 'index']));
-config.plugins.push(htmlwebpackPluginBuilder('register.html', ['register.css', 'vendors', 'register']));
+config.plugins.push(htmlwebpackPluginBuilder('join.html', ['join.css', 'vendors', 'join']));
 config.plugins.push(htmlwebpackPluginBuilder('user-center.html', ['user-center.css', 'vendors', 'user-center']));
 config.plugins.push(htmlwebpackPluginBuilder('user-center.html', ['user-center.css', 'vendors', 'user-center']));
 config.plugins.push(htmlwebpackPluginBuilder('start.html', ['start.css', 'vendors', 'start']));
