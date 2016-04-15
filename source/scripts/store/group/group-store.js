@@ -43,7 +43,7 @@ var GroupStore = Reflux.createStore({
             role: res.body.role
           });
         } else {
-          return;
+          console.log(res.body.status);
         }
       })
   },
