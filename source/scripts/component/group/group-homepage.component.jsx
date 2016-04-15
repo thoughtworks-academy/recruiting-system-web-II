@@ -38,7 +38,6 @@ var GroupHomepage = React.createClass({
     }
   },
   componentDidMount: function() {
-    console.log('loadgroup');
     GroupAction.loadGroup();
   },
 
