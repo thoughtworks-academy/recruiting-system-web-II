@@ -10,11 +10,13 @@ page.base('/group');
 
 page('/', groupRouter.render);
 
-page('/:groupId', function(ctx, next) {
+page('/:groupHash', function(ctx, next) {
   page('/' + ctx.params.groupId + '/index');
 });
 
-page('/:groupId/:action', groupRouter.render);
+page('/:groupHash/:action', function (ctx, next) {
+  groupRouter.render(ctx.params, next);
+});
 
 page();
 

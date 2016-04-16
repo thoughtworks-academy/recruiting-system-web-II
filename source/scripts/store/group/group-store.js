@@ -5,6 +5,7 @@ var GroupActions = require('../../actions/group/group-actions');
 var superagent = require('superagent');
 var errorHandler = require('../../../../tools/error-handler.jsx');
 var constant = require('../../../../mixin/constant');
+var page = require('page');
 
 var GroupStore = Reflux.createStore({
   listenables: [GroupActions],
@@ -49,12 +50,30 @@ var GroupStore = Reflux.createStore({
   },
 
   onCreateGroup: function (){
-   superagent.post('/api/group/create')
+   superagent.post('/api/group')
        .set('Content-Type', 'application/json')
        .use(errorHandler)
        .end((err, res) => {
-
+         if(err){
+           console.log(err);
+         }else {
+           page('/'+ res.body.groupHash + '/manage');
+         }
        })
+  },
+
+  onSubmitInfo: function (data){
+    superagent.put('/api/group')
+        .set('Content-Type', 'application/json')
+        .send(data)
+        .use(errorHandler)
+        .end((err, res) => {
+          if(err){
+            console.log(err);
+          }else if(res.body.status === constant.httpCode.OK){
+            page('/group');
+          }
+        })
   }
 });
 

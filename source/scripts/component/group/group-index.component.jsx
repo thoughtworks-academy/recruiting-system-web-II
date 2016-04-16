@@ -24,7 +24,7 @@ var GroupIndex = React.createClass({
   },
 
   componentWillMount: function (){
-    GroupActions.loadIndex(this.props.groupId);
+    GroupActions.loadIndex(this.props.groupHash);
   },
 
   render() {
@@ -41,7 +41,7 @@ var GroupIndex = React.createClass({
           <div className="col-md-3 group-icon">
             <GroupAvatar groupName={this.state.groupName}
                          groupAvatar={this.state.avatar}
-                         groupId={this.props.groupId} />
+                         groupHash={this.props.groupHash} />
 
             <p>试卷:{this.state.paperNumber}张</p>
             <p>人数:{this.state.memberNumber}人</p>

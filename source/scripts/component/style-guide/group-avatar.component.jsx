@@ -5,7 +5,7 @@ var page = require('page');
 var GroupAvatar = React.createClass({
 
   handleClick: function (){
-    page('/' + this.props.groupId);
+    page('/' + this.props.groupHash);
   },
 
   render () {

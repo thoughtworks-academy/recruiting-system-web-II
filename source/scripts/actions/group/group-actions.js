@@ -5,7 +5,8 @@ var Reflux = require('reflux');
 var GroupActions = Reflux.createActions([
     'loadIndex',
     'loadGroup',
-    'createGroup'
+    'createGroup',
+    'submitInfo'
 ]);
 
 module.exports = GroupActions;

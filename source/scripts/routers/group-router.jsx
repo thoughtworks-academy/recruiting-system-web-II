@@ -5,8 +5,10 @@ var Navigation = require('../component/navigation/navigation.component.jsx');
 var Account = require('../component/reuse/get-account.component.jsx');
 var page = require('page');
 
-function asyncRenderAction(id, action, callBack) {
+function asyncRenderAction(data, callBack) {
   var element;
+  var groupHash = data.groupHash;
+  var action = data.action;
 
   switch (action) {
     case 'index':
@@ -18,10 +20,10 @@ function asyncRenderAction(id, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="index" groupId={id} />
+              <GroupSidebar action="index" groupHash={groupHash} />
               <div className="col-md-9">
                 <div id="content">
-                  <GroupIndex groupId={id}/>
+                  <GroupIndex groupHash={groupHash}/>
                 </div>
               </div>
             </div>;
@@ -37,10 +39,10 @@ function asyncRenderAction(id, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="paper" groupId={id} />
+              <GroupSidebar action="paper" groupHash={groupHash} />
               <div className="col-md-9">
                 <div id="content">
-                  <GroupPapers />
+                  <GroupPapers groupHash={groupHash} />
                 </div>
               </div>
             </div>;
@@ -56,10 +58,10 @@ function asyncRenderAction(id, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="discussion" groupId={id} />
+              <GroupSidebar action="discussion" groupHash={groupHash} />
               <div className="col-md-9">
                 <div id="content">
-                  <GroupDiscussion />
+                  <GroupDiscussion groupHash={groupHash} />
                 </div>
               </div>
             </div>;
@@ -75,10 +77,10 @@ function asyncRenderAction(id, action, callBack) {
         var GroupSidebar = require("../component/group/group-sidebar.component.jsx");
         element =
             <div>
-              <GroupSidebar action="manage" groupId={id} />
+              <GroupSidebar action="manage" groupHash={groupHash} />
               <div className="col-md-9">
                 <div id="content">
-                  <GroupManage />
+                  <GroupManage groupHash={groupHash} />
                 </div>
               </div>
             </div>;
@@ -99,9 +101,9 @@ function asyncRenderAction(id, action, callBack) {
   }
 }
 
-function render(id, action, next) {
+function render(data, next) {
 
-  asyncRenderAction(id, action, function (innerElement) {
+  asyncRenderAction(data, function (innerElement) {
     var content =
         <div>
           <header>
@@ -120,9 +122,6 @@ function render(id, action, next) {
 }
 
 module.exports = {
-  render: function (ctx, next) {
-    var action = ctx.params.action;
-    var id = ctx.params.groupId;
-    render(id, action, next);
-  }
+  render: render
+
 };

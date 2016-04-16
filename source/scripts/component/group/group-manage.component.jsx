@@ -6,8 +6,12 @@ var ManagePaper = require('./group-manage-paper.component.jsx');
 var MangeMember = require('./group-manage-member.component.jsx');
 var MangeVerify = require('./group-manage-verify.component.jsx');
 var MangeDiscussion = require('./group-manage-discussion.component.jsx');
+var GroupAction = require('../../actions/group/group-actions.js');
+var GroupStore = require('../../store/group/group-store');
+var Reflux = require('reflux');
 
 var GroupManage = React.createClass ({
+  mixins: [Reflux.connect(GroupStore)],
 
   getInitialState: function (){
     return {
@@ -95,7 +99,7 @@ var GroupManage = React.createClass ({
   render() {
     return (
         <CustomizeTabs tabNames={this.state.tabNames}>
-          <ManageIndex />
+          <ManageIndex groupHash={this.props.groupHash} submitInfo={GroupAction.submitInfo}/>
           <ManagePaper groupName={this.state.groupName} papers={this.state.papers} />
           <MangeMember members={this.state.members} />
           <MangeVerify preMembers={this.state.preMembers} />
