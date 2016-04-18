@@ -43,6 +43,12 @@ var GroupStore = Reflux.createStore({
             groups: res.body.groups,
             role: res.body.role
           });
+        }else if(res.body.status === constant.httpCode.NOT_FOUND) {
+          console.log(res.body.role);
+          this.trigger({
+            groups: [],
+            role: res.body.role
+          });
         } else {
           console.log(res.body.status);
         }
