@@ -4,7 +4,7 @@ var page = require('page');
 var ListGroup = React.createClass({
 
   handleClick: function (action) {
-    page('/' + this.props.groupId + '/' + action);
+    page('/' + this.props.groupHash + '/' + action);
   },
 
   render() {

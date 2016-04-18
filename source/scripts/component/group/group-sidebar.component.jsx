@@ -22,7 +22,7 @@ var GroupSidebar = React.createClass({
           <ListGroup title={this.state.title}
                      list={this.state.list}
                      action={this.props.action}
-                     groupId={this.props.groupId} />
+                     groupHash={this.props.groupHash} />
         </div>
     );
   }

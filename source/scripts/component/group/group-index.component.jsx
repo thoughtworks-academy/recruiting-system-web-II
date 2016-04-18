@@ -11,19 +11,19 @@ var Reflux = require('reflux');
 var GroupIndex = React.createClass({
   mixins: [Reflux.connect(GroupStore)],
 
-  getInitialState: function (){
+  getInitialState: function () {
     return {
       announcement: '',
       paperNumber: 0,
       memberNumber: 0,
       groupEvents: [],
-      groupName:'',
-      avatar:'',
+      groupName: '',
+      avatar: '',
       isAnnouncePublished: true
     }
   },
 
-  componentWillMount: function (){
+  componentWillMount: function () {
     GroupActions.loadIndex(this.props.groupHash);
   },
 
@@ -32,16 +32,16 @@ var GroupIndex = React.createClass({
     return (
         <div>
           <div className="col-md-9">
-            <GroupTitle titleName="群组公告" />
+            <GroupTitle titleName="群组公告"/>
             <TextBox content={this.state.isAnnouncePublished ? this.state.announcement : ''}
-                     readonly={true} />
-            <GroupTitle titleName="群组事件" />
+                     readonly={true}/>
+            <GroupTitle titleName="群组事件"/>
             <GroupEvent events={this.state.groupEvents}/>
           </div>
           <div className="col-md-3 group-icon">
             <GroupAvatar groupName={this.state.groupName}
                          groupAvatar={this.state.avatar}
-                         groupHash={this.props.groupHash} />
+                         groupHash={this.props.groupHash}/>
 
             <p>试卷:{this.state.paperNumber}张</p>
             <p>人数:{this.state.memberNumber}人</p>

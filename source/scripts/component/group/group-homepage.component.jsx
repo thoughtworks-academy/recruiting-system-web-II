@@ -13,45 +13,45 @@ var GroupHomepage = React.createClass({
 
   getInitialState(){
     return {
-      groups:[],
+      groups: [],
       role: this.props.role || '2',
       papers: [
         {
-          paperName:'pos 无尽版',
+          paperName: 'pos 无尽版',
           isMarked: true,
           isPublished: true,
           sectionNumber: 13,
-          publishedNumber:6,
+          publishedNumber: 6,
           role: '2',
           isFinished: true
         },
         {
-          paperName:'pos 真·无尽版',
+          paperName: 'pos 真·无尽版',
           isMarked: false,
           isPublished: false,
           sectionNumber: 10,
-          publishedNumber:1,
+          publishedNumber: 1,
           role: '1',
           isFinished: false
         }
       ]
     }
   },
-  componentDidMount: function() {
+  componentDidMount: function () {
     GroupAction.loadGroup();
   },
 
-  createGroup: function() {
+  createGroup: function () {
     GroupAction.createGroup();
   },
 
   render(){
     var groupList = this.state.groups.map((group, index) => {
       return (
-          <div className="col-md-3 col-sm-4 col-xs-6"  key={index}>
+          <div className="col-md-3 col-sm-4 col-xs-6" key={index}>
             <GroupAvatar groupName={group.name}
                          groupAvatar={group.avatar}
-                         groupId={group.id} />
+                         groupHash={group.groupHash}/>
           </div>
       )
     });
