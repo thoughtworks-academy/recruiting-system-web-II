@@ -6,7 +6,8 @@ var GroupActions = Reflux.createActions([
     'loadIndex',
     'loadGroup',
     'createGroup',
-    'submitInfo'
+    'submitInfo',
+    'operatePaper'
 ]);
 
 module.exports = GroupActions;
