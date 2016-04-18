@@ -6,7 +6,7 @@ var page = require('page');
 var StartInfo = React.createClass({
 
   start: function () {
-    page('logic-puzzle.html');
+    page('logic-puzzle');
   },
 
   render() {
@@ -46,7 +46,7 @@ var StartInfo = React.createClass({
           </section>
           <section className="start-button">
             <button type="submit" className="btn btn-info btn-lg btn-block"
-                     onClick={this.start}>开始
+                    onClick={this.start}>开始
             </button>
           </section>
         </div>
