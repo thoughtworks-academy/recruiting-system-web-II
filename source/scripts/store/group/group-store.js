@@ -82,8 +82,7 @@ var GroupStore = Reflux.createStore({
       });
   },
   onOperatePaper: function (paperName) {
-    console.log("store store store");
-    superagent.post('api/paper')
+    superagent.post('/api/group/:paperHash/paper')
       .send({paperName: paperName})
       .set('Content-Type', 'application/json')
       .use(errorHandler)
