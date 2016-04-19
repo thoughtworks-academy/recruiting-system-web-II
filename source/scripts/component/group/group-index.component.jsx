@@ -19,7 +19,12 @@ var GroupIndex = React.createClass({
       groupEvents: [],
       groupName: '',
       avatar: '',
-      isAnnouncePublished: true
+      isAnnouncePublished: true,
+      group: {
+        name: this.groupName,
+        avatar: this.avatar,
+        groupHash: this.props.groupHash
+      }
     }
   },
 
@@ -39,9 +44,8 @@ var GroupIndex = React.createClass({
             <GroupEvent events={this.state.groupEvents}/>
           </div>
           <div className="col-md-3 group-icon">
-            <GroupAvatar groupName={this.state.groupName}
-                         groupAvatar={this.state.avatar}
-                         groupHash={this.props.groupHash}/>
+            <GroupAvatar group={this.state.group}
+                         />
 
             <p>试卷:{this.state.paperNumber}张</p>
             <p>人数:{this.state.memberNumber}人</p>

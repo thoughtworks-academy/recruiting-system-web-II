@@ -49,9 +49,8 @@ var GroupHomepage = React.createClass({
     var groupList = this.state.groups.map((group, index) => {
       return (
           <div className="col-md-3 col-sm-4 col-xs-6" key={index}>
-            <GroupAvatar groupName={group.name}
-                         groupAvatar={group.avatar}
-                         groupHash={group.groupHash}/>
+            <GroupAvatar group={group}
+                         />
           </div>
       )
     });
