@@ -10,10 +10,10 @@ var page = require('page');
 var GroupStore = Reflux.createStore({
   listenables: [GroupActions],
 
-  onLoadIndex: function (id) {
-    superagent.get('/api/group/info')
+  onLoadIndex: function (groupHash) {
+
+    superagent.get('/api/group/info/' + groupHash)
         .set('Content-Type', 'application/json')
-        .query({groupId: id})
         .use(errorHandler)
         .end((err, res) => {
           if (err) {
