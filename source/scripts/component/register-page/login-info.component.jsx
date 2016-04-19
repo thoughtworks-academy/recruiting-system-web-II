@@ -46,6 +46,12 @@ var LoginInfo = React.createClass({
           <div className={passwordRetrieve}>
             忘记密码?<a href="password-retrieve.html">立即找回</a>
           </div>
+          <div className={"third-party" + (this.state.isLoginState ? ' hide' : '')}>
+            第三方登录:<p/>
+            <a href="/api/auth/github">
+              <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+            </a>
+          </div>
         </div>
     );
   }
