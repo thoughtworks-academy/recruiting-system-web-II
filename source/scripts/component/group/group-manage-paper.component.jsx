@@ -18,7 +18,13 @@ var ManagePaper = React.createClass({
   createPaper: function () {
     this.setState({
       isDisplayed:false
-    })
+    });
+  },
+
+  paperManage: function() {
+    this.setState({
+      isDisplayed: true
+    });
   },
 
   render () {
@@ -35,7 +41,7 @@ var ManagePaper = React.createClass({
           <AddPaper createPaper={this.createPaper}/>
         </div>
         <div className={this.state.isDisplayed ? 'hide' : ''}>
-          <OperatePaper />
+          <OperatePaper paperManage={this.paperManage}/>
         </div>
       </div>
     );

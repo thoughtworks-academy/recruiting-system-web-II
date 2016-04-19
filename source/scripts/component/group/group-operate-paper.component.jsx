@@ -23,16 +23,16 @@ function getError(validateInfo, field) {
   return '';
 }
 
-var SectionPage = React.createClass({
+var PaperPage = React.createClass({
   mixins: [Reflux.connect(GroupStore)],
 
-  getInitialState: function() {
+  getInitialState: function () {
     return {
       paperNameError: '',
       paperId: 0
     }
   },
-  sendPaper: function() {
+  sendPaper: function () {
     var valObj = {};
     var stateObj = {};
 
@@ -46,12 +46,12 @@ var SectionPage = React.createClass({
     GroupAction.operatePaper(this.refs.paperName.value);
   },
   render() {
-    return(
+    return (
       <div>
         <div>
           <ol className="breadcrumb">
-            <li><a href="#">试卷管理</a></li>
-            <li className="active">{this.props.id ? "编辑试卷": "添加试卷"}</li>
+            <li><a className="paper-manage" href="javascript:void(0)" onClick={this.props.paperManage} >试卷管理</a></li>
+            <li className="active">{this.props.id ? "编辑试卷" : "添加试卷"}</li>
           </ol>
         </div>
         <div className="col-md-8 col-md-offset-2 paper-name">
@@ -82,4 +82,4 @@ var SectionPage = React.createClass({
   }
 });
 
-module.exports = SectionPage;
+module.exports = PaperPage;
