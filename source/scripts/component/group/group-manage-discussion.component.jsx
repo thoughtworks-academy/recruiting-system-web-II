@@ -5,13 +5,12 @@ var GroupTitle = require('../style-guide/group-title.component.jsx');
 var ManageDiscussion = React.createClass ({
   getInitialState: function () {
     return {
-      tableContent: this.props.subjects,
       isDeleted: false
     }
   },
 
   render () {
-    var tableBody = this.state.tableContent.map((item, index) => {
+    var tableBody = this.props.subjects.map((item, index) => {
       return (
           <tr key={index}>
             <th scope="row"><input type="checkbox" value={index +1} />{index + 1}</th>

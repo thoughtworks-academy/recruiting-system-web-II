@@ -6,14 +6,13 @@ var ManageMember = React.createClass({
 
   getInitialState: function () {
     return {
-      tableContent: this.props.preMembers,
       isVerified: false,
       isIgnored: false
     }
   },
 
   render () {
-    var tableBody = this.state.tableContent.map((item, index) => {
+    var tableBody = this.props.preMembers.map((item, index) => {
       return (
           <tr key={index}>
             <th scope="row">{index + 1}</th>
