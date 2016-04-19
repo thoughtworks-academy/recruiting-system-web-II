@@ -18,34 +18,33 @@ var ManageIndex = React.createClass({
   },
 
   switchValue: function (elem, value) {
-    if(elem.props.name === 'publish'){
+    if (elem.props.name === 'publish') {
       this.setState({
         isAnnouncePublished: value
       })
     }
 
-    if(elem.props.name === 'activate'){
+    if (elem.props.name === 'activate') {
       this.setState({
         isLinkActivated: value
       })
     }
   },
 
-  textboxValue: function (content){
+  textboxValue: function (content) {
     this.setState({
       announcement: content
     });
   },
 
-  submitGroupInfo: function (){
+  submitGroupInfo: function () {
     var data = {
       name: this.refs.groupName.value,
       avatar: '',
       isAnnouncePublished: this.state.isAnnouncePublished,
-      announcement: this.state.announcement,
-      groupHash: this.state.groupHash
+      announcement: this.state.announcement
     };
-    this.props.submitInfo(data);
+    this.props.submitInfo(data, this.state.groupHash);
   },
 
   render () {
@@ -80,7 +79,7 @@ var ManageIndex = React.createClass({
                 是否启用:
               </p>
               <div className="col-md-4">
-                <Switch size="mini" name="activate" onChange={this.switchValue} />
+                <Switch size="mini" name="activate" onChange={this.switchValue}/>
               </div>
             </div>
           </div>
@@ -94,7 +93,7 @@ var ManageIndex = React.createClass({
                 是否发布:
               </p>
               <div className="col-md-4">
-                <Switch size="mini" name="publish" onChange={this.switchValue} />
+                <Switch size="mini" name="publish" onChange={this.switchValue}/>
               </div>
             </div>
           </div>
