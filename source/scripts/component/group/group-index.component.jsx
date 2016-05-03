@@ -17,12 +17,10 @@ var GroupIndex = React.createClass({
       paperNumber: 0,
       memberNumber: 0,
       groupEvents: [],
-      groupName: '',
-      avatar: '',
       isAnnouncePublished: true,
       group: {
-        name: this.groupName,
-        avatar: this.avatar,
+        name: '',
+        avatar: '',
         groupHash: this.props.groupHash
       }
     }
@@ -33,7 +31,6 @@ var GroupIndex = React.createClass({
   },
 
   render() {
-
     return (
         <div>
           <div className="col-md-9">

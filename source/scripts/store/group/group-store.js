@@ -13,21 +13,24 @@ var GroupStore = Reflux.createStore({
   onLoadIndex: function (groupHash) {
 
     superagent.get('/api/group/info/' + groupHash)
-        .set('Content-Type', 'application/json')
-        .use(errorHandler)
-        .end((err, res) => {
-          if (err) {
-            console.log(err);
-          } else {
-            this.trigger({
-              memberNumber: res.body.memberNumber,
-              announcement: res.body.announcement || '',
-              paperNumber: 0,
-              groupName: res.body.groupName,
-              avatar: res.body.avatar || ''
-            });
-          }
-        });
+      .set('Content-Type', 'application/json')
+      .use(errorHandler)
+      .end((err, res) => {
+        if (err) {
+          console.log(err);
+        } else {
+          this.trigger({
+            memberNumber: res.body.memberNumber,
+            announcement: res.body.announcement || '',
+            paperNumber: 0,
+            group:{
+              name: res.body.name,
+              avatar: res.body.avatar,
+              groupHash: groupHash
+            }
+          });
+        }
+      });
   },
 
   onLoadGroup: function () {
