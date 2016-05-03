@@ -34,7 +34,7 @@ var GetAccount = React.createClass({
               <li><a href="/user-center">个人中心</a></li>
               <li><a href="/dashboard">控制台</a></li>
               <li role="separator" className="divider" />
-              <li><a href="api/logout">退出</a></li>
+              <li><a href="/api/logout">退出</a></li>
             </ul>
           </div>
         </div>
