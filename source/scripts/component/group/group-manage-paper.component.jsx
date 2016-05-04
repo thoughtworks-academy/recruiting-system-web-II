@@ -4,6 +4,7 @@ var GroupTitle = require('../style-guide/group-title.component.jsx');
 var Paper = require('../style-guide/paper.component.jsx');
 var AddPaper = require('../style-guide/add-paper.component.jsx');
 var OperatePaper = require('./group-operate-paper.component.jsx');
+var AddSection = require('./group-add-section.component.jsx');
 
 var ManagePaper = React.createClass({
 
@@ -17,13 +18,19 @@ var ManagePaper = React.createClass({
 
   createPaper: function () {
     this.setState({
-      isDisplayed:false
+      isDisplayed: 'addPaper'
     });
   },
 
-  paperManage: function() {
+  paperManage: function () {
     this.setState({
-      isDisplayed: true
+      isDisplayed: 'paperManage'
+    });
+  },
+
+  addSection: function (){
+    this.setState({
+      isDisplayed: 'addSection'
     });
   },
 
@@ -35,13 +42,16 @@ var ManagePaper = React.createClass({
     });
     return (
       <div>
-        <div className={this.state.isDisplayed ? '' : 'hide'}>
+        <div className={this.state.isDisplayed === 'addPaper' ? '' : 'hide'}>
           <GroupTitle titleName={this.state.groupName}/>
           {paperList}
           <AddPaper createPaper={this.createPaper}/>
         </div>
-        <div className={this.state.isDisplayed ? 'hide' : ''}>
-          <OperatePaper paperManage={this.paperManage}/>
+        <div className={this.state.isDisplayed === 'paperManage' ? '' : 'hide'}>
+          <OperatePaper addSection={this.addSection} paperManage={this.paperManage}/>
+        </div>
+        <div className={this.state.isDisplayed === 'addSection' ? '' : 'hide'}>
+          <AddSection paperManage={this.paperManage} editPaper={this.editPaper}/>
         </div>
       </div>
     );
