@@ -3,7 +3,7 @@
 var CompleteSection = React.createClass({
   getInitialState: function () {
     return {
-      sectionName: '编程题'
+      sectionName: this.props.sectionName || '编程题'
     }
   },
 
