@@ -49,6 +49,10 @@ var PaperPage = React.createClass({
 
     GroupAction.createPaper(this.refs.paperName.value);
   },
+  paperManage: function () {
+    this.refs.paperName.value = '';
+    this.props.paperManage();
+  },
   render() {
     var sectionList = this.state.sections.map((section, index) => {
       return (
@@ -65,7 +69,7 @@ var PaperPage = React.createClass({
       <div>
         <div>
           <ol className="breadcrumb">
-            <li><a className="paper-manage" href="javascript:void(0)" onClick={this.props.paperManage} >试卷管理</a></li>
+            <li><a className="paper-manage" href="javascript:void(0)" onClick={this.paperManage} >试卷管理</a></li>
             <li className="active">{this.state.paperId ? "编辑试卷" : "添加试卷"}</li>
           </ol>
         </div>
