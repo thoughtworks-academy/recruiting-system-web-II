@@ -1,6 +1,8 @@
 'use strict';
 
 var AddSection = require('../style-guide/add-section.component.jsx');
+var Section = require('../style-guide/complete-section.component.jsx');
+var Arrows = require('../style-guide/arrows.component.jsx');
 var validate = require('validate.js');
 var GroupAction = require('../../actions/group/group-actions.js');
 var GroupStore = require('../../store/group/group-store.js');
@@ -29,10 +31,12 @@ var PaperPage = React.createClass({
   getInitialState: function () {
     return {
       paperNameError: '',
-      paperId: 0
+      paperId: null,
+      sections: []
     }
   },
   sendPaper: function () {
+
     var valObj = {};
     var stateObj = {};
 
@@ -43,15 +47,26 @@ var PaperPage = React.createClass({
       return this.setState(stateObj);
     }
 
-    GroupAction.operatePaper(this.refs.paperName.value);
+    GroupAction.createPaper(this.refs.paperName.value);
   },
   render() {
+    var sectionList = this.state.sections.map((section, index) => {
+      return (
+          <div className="edit-paper col-md-12" key={index}>
+            <Section className="col-md-12" sectionName={section.description}/>
+            <div className="col-md-12 arrow">
+              <Arrows />
+            </div>
+          </div>
+
+      )
+    });
     return (
       <div>
         <div>
           <ol className="breadcrumb">
             <li><a className="paper-manage" href="javascript:void(0)" onClick={this.props.paperManage} >试卷管理</a></li>
-            <li className="active">{this.props.id ? "编辑试卷" : "添加试卷"}</li>
+            <li className="active">{this.state.paperId ? "编辑试卷" : "添加试卷"}</li>
           </ol>
         </div>
         <div className="col-md-8 col-md-offset-2 paper-name">
@@ -67,8 +82,7 @@ var PaperPage = React.createClass({
             <button className="btn btn-default" onClick={this.sendPaper}>保存</button>
           </div>
         </div>
-        <div className="edit-paper">
-        </div>
+          {this.state.paperId ? sectionList : ''}
         <div className="add-paper col-md-8 col-md-offset-2">
           <AddSection />
         </div>
