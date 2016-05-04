@@ -4,9 +4,8 @@ var LoginStore = require('../../store/register-page/login-store');
 var Reflux = require('reflux');
 
 function listener() {
-  var state = location.hash.substr(1);
 
-  if(state === 'login') {
+  if(location.pathname === '/join/login') {
     LoginActions.changeState(false);
   }else {
     LoginActions.changeState(true);
@@ -26,6 +25,7 @@ var LoginInfo = React.createClass({
     };
   },
   componentWillMount: function() {
+    console.log('componentWillMount')
     listener();
   },
   toggleState: function () {
@@ -39,7 +39,7 @@ var LoginInfo = React.createClass({
         <div id="login-info" className="col-md-5 register-form-right">
           <div id="register-right" className="link">
             {this.state.isLoginState ? '还没账号?' : '已有账号?'}
-            <a id="change-to-logon" href={this.state.isLoginState ? '#register' : '#login'} onClick={this.toggleState}>
+            <a id="change-to-logon" href={this.state.isLoginState ? '/join/register' : '/join/login'} >
               {this.state.isLoginState ? '立即注册' : '立即登录'}
             </a>
           </div>
