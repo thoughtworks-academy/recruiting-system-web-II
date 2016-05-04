@@ -48,7 +48,7 @@ var RegisterForm = React.createClass({
       });
       this.refs.mobilePhone.value = '';
       this.refs.email.value = '';
-    };
+    }
   },
 
   validate: function (event) {
