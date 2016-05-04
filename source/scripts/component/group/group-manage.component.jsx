@@ -19,6 +19,7 @@ var GroupManage = React.createClass ({
       groupName: this.props.groupName || '未命名',
       papers: [
         {
+          id:1,
           paperName:'pos 无尽版',
           isMarked: true,
           isPublished: true,
@@ -28,6 +29,7 @@ var GroupManage = React.createClass ({
           isFinished: true
         },
         {
+          id:2,
           paperName:'pos 真·无尽版',
           isMarked: false,
           isPublished: false,
@@ -37,6 +39,7 @@ var GroupManage = React.createClass ({
           isFinished: false
         },
         {
+          id:3,
           paperName:'pos 真·无尽版',
           isMarked: false,
           isPublished: false,
