@@ -25,7 +25,6 @@ var LoginInfo = React.createClass({
     };
   },
   componentWillMount: function() {
-    console.log('componentWillMount')
     listener();
   },
   toggleState: function () {

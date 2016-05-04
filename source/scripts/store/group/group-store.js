@@ -77,7 +77,8 @@ var GroupStore = Reflux.createStore({
         .send(data)
         .use(errorHandler)
         .end((err, res) => {
-          if (res.body.status === constant.httpCode.OK) {
+          if (res.body.status === constant.httpCode.CREATED ||
+              res.body.status === constant.httpCode.OK) {
             page('/group');
           }
         });
