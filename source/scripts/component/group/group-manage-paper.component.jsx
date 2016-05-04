@@ -64,7 +64,7 @@ var ManagePaper = React.createClass({
           <OperatePaper addSection={this.addSection} paperManage={this.paperManage}/>
         </div>
         <div className={this.state.isDisplayed === 'addSection' ? '' : 'hide'}>
-          <AddSection paperManage={this.paperManage} />
+          <AddSection paperManage={this.paperManage}/>
         </div>
       </div>
     );
