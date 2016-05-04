@@ -84,7 +84,7 @@ var GroupStore = Reflux.createStore({
         });
   },
 
-  onOperatePaper: function (paperName, groupHash) {
+  onCreatePaper: function (paperName, groupHash) {
 
     var url = '/api/group/' + groupHash + '/paper';
 
@@ -94,9 +94,42 @@ var GroupStore = Reflux.createStore({
         .use(errorHandler)
         .end((err, res) => {
           this.trigger({
-            paperId: res.body.paperId
+            paperId: res.body.paperId,
+            sections: []
           });
         });
+  },
+  onAddPaper: function () {
+    this.trigger({
+      paperId: null
+    })
+  },
+
+  onSetPaperId: function(id) {
+    this.trigger({
+      paperId: id
+    });
+  },
+  onLoadSection: function(id) {
+    var url = '/api/group/paper/' + id;
+
+    superagent.get(url)
+    .set('Content-Type', 'application/json')
+    .use(errorHandler)
+    .end((err,res) => {
+      if(res.body.status === constant.httpCode.NOT_FOUND) {
+        this.trigger({
+          sections: []
+        })
+      } else if (res.body.status === constant.httpCode.OK) {
+        this.trigger({
+          sections: res.body.sections
+        });
+      } else {
+        return ;
+      }
+
+    });
   }
 });
 
