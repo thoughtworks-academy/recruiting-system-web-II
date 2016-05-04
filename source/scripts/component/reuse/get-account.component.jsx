@@ -17,12 +17,16 @@ var GetAccount = React.createClass({
     GetAccountActions.loadAccount();
   },
 
+  handleClick: function () {
+    GetAccountActions.logout();
+  },
+
   render: function () {
     return (
         <div className="header-right">
           <div className={this.state.isLoged ? 'hide':''}>
-            <a href='/join#login' className="col-md-6 col-sm-6">登录</a>
-            <a href='/join#register' className="col-md-6 col-sm-6">注册</a>
+            <a href='/join/login' className="col-md-6 col-sm-6">登录</a>
+            <a href='/join/register' className="col-md-6 col-sm-6">注册</a>
           </div>
           <div className={this.state.isLoged ? 'dropdown' : 'hide'}>
             <div className="dropdown-style" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
@@ -34,7 +38,7 @@ var GetAccount = React.createClass({
               <li><a href="/user-center">个人中心</a></li>
               <li><a href="/dashboard">控制台</a></li>
               <li role="separator" className="divider" />
-              <li><a href="/api/logout">退出</a></li>
+              <li><a href="javascript:void(0)" onClick={this.handleClick}>退出</a></li>
             </ul>
           </div>
         </div>
