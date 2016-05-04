@@ -3,6 +3,7 @@
 var Paper = React.createClass({
   getInitialState: function() {
     return {
+      id: this.props.item.id,
       paperName: this.props.item.paperName || 'PaperNamePaperName',
       isMarked: this.props.item.isMarked,
       isPublished: this.props.item.isPublished,
@@ -12,6 +13,11 @@ var Paper = React.createClass({
       isFinished: this.props.item.isFinished
     }
   },
+
+  handleClick: function() {
+    this.props.editPaper(this.state.id);
+  },
+
   render: function() {
     return (
         <div className="paper-button col-xs-12 col-md-12 col-sm-12">
@@ -31,7 +37,7 @@ var Paper = React.createClass({
             <div>已发布个数：{this.state.publishedNumber}</div>
           </div>
           <div className="button-bottom">
-            <button className={"text-warning" + (this.state.role === '1' ? '' : ' unvisible')}><b>编辑</b></button>
+            <button className={"text-warning" + (this.state.role === '1' ? '' : ' unvisible')} onClick={this.handleClick}><b>编辑</b></button>
             <button className={"text-primary" + (this.state.role === '1' ? '' : ' unvisible')}><b>导出成绩</b></button>
             <button className={"text-success" + (this.state.isFinished ? ' unvisible' : '')}><b>开始答题</b></button>
           </div>
