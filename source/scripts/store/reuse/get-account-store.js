@@ -33,7 +33,9 @@ var GetAccountStore = Reflux.createStore({
         .set('Content-Type', 'application/json')
         .use(errorHandler)
         .end((err, res) => {
-          if(res.status === 200) page('../join');
+          if(res.status === 200) {
+            page('http://192.168.99.100:8888/join')
+          }
         })
   }
 });

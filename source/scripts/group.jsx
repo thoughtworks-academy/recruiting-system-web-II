@@ -12,10 +12,10 @@ page('/', groupRouter.render);
 
 page('/:groupHash', function (ctx, next) {
 
-  page('/' + ctx.params.groupHash + '/index');
+  page('/' + ctx.params.groupHash + '/index/2');
 });
 
-page('/:groupHash/:action', function (ctx, next) {
+page('/:groupHash/:action/:role', function (ctx, next) {
   groupRouter.render(ctx.params, next);
 });
 

@@ -4,15 +4,18 @@ var page = require('page');
 var ListGroup = React.createClass({
 
   handleClick: function (action) {
-    page('/' + this.props.groupHash + '/' + action);
+    page('/' + this.props.groupHash + '/' + action + '/' + this.props.role);
   },
 
   render() {
 
     var listContent = this.props.list.map((item, index) => {
-      var classStr = "list-group-item " + (this.props.action === item.action ? 'select': '');
+      var classStr = "list-group-item " +
+          (this.props.action === item.action ? 'select ': '') +
+          (this.props.role === '2' && item.action === 'manage'? 'hide ': '');
       return (
-        <button className={classStr} key={index} onClick={this.handleClick.bind(null, item.action)}>
+        <button className={classStr} key={index}
+                onClick={this.handleClick.bind(null, item.action)} >
           <div className="row">
             <div className="h4 text-center">{item.name}</div>
           </div>

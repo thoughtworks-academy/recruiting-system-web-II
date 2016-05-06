@@ -43,12 +43,12 @@ var GroupStore = Reflux.createStore({
           } else if (res.body.status === constant.httpCode.OK) {
             this.trigger({
               groups: res.body.groups,
-              role: res.body.role
+              role: res.body.role || '2'
             });
           } else if (res.body.status === constant.httpCode.NOT_FOUND) {
             this.trigger({
               groups: [],
-              role: res.body.role
+              role: res.body.role || '2'
             });
           }
         });

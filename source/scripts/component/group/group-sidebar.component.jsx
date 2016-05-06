@@ -6,11 +6,10 @@ var GroupSidebar = React.createClass({
 
   getInitialState: function() {
     return ({
-      title: '个人中心',
+      title: '群组概况',
       list: [
         {name: '群组首页',action: 'index'},
         {name: '群组试卷',action: 'paper'},
-        {name: '群组讨论',action: 'discussion'},
         {name: '群组管理',action: 'manage'}
       ]
     })
@@ -22,7 +21,8 @@ var GroupSidebar = React.createClass({
           <ListGroup title={this.state.title}
                      list={this.state.list}
                      action={this.props.action}
-                     groupHash={this.props.groupHash} />
+                     groupHash={this.props.groupHash}
+                     role={this.props.role} />
         </div>
     );
   }

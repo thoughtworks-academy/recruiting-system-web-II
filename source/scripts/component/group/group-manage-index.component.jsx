@@ -64,14 +64,6 @@ var ManageIndex = React.createClass({
               <input className="form-control" name="memberNumber" readOnly type="text"/>
             </div>
           </div>
-          <div className="basic-avatar col-md-12 col-sm-12 col-xs-12">
-            <p className="col-md-2">
-              群组头像:
-            </p>
-            <div className="col-md-10">
-              <UploadAvatar />
-            </div>
-          </div>
           <div className="invite-link col-md-12 col-sm-12 col-xs-12">
             <div className="col-md-8"><InviteLink /></div>
             <div className="col-md-4 ">

@@ -88,7 +88,7 @@ var PaperPage = React.createClass({
         </div>
           {this.state.paperId ? sectionList : ''}
         <div className="add-paper col-md-8 col-md-offset-2">
-          <AddSection />
+          <AddSection addSection={this.props.addSection}/>
         </div>
         <div className="col-md-12 operate-paper">
           <button className="btn btn-default col-md-2 col-md-offset-1">预览</button>

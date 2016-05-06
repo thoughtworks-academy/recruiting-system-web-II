@@ -14,7 +14,7 @@ var GroupHomepage = React.createClass({
   getInitialState(){
     return {
       groups: [],
-      role: this.props.role || '2',
+      role: this.props.role ,
       papers: [
         {
           paperName: 'pos 无尽版',
@@ -49,8 +49,7 @@ var GroupHomepage = React.createClass({
     var groupList = this.state.groups.map((group, index) => {
       return (
           <div className="col-md-3 col-sm-4 col-xs-6" key={index}>
-            <GroupAvatar group={group}
-                         />
+            <GroupAvatar group={group} role={this.state.role} />
           </div>
       )
     });
