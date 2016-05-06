@@ -1,7 +1,6 @@
 'use strict';
 
 var GroupTitle = require('../style-guide/group-title.component.jsx');
-var Paper = require('../style-guide/paper.component.jsx');
 var AddPaper = require('../style-guide/add-paper.component.jsx');
 var OperatePaper = require('./group-operate-paper.component.jsx');
 var AddSection = require('./group-add-section.component.jsx');
@@ -48,22 +47,54 @@ var ManagePaper = React.createClass({
   },
 
   render () {
-    var paperList = this.state.papers.map((paper, index) => {
+    var tableBody = this.props.papers.map((paper, index) => {
       return (
-        <Paper item={paper} key={index} editPaper={this.editPaper}/>
+          <tr key={index}>
+            <th scope="row">{paper.id}</th>
+            <td>{paper.paperName}</td>
+            <td className={this.props.role === '1'? '' : 'hide '}>
+              <i className={"fa" + (paper.isMarked ? ' fa-star' : ' fa-star-o')} />
+            </td>
+            <td className={this.props.role === '1'? '' : 'hide '}>
+              {paper.isPublished ? '已发布' : <button className="text-primary" >点击发布</button>}
+            </td>
+            <td>{paper.publishedNumber + '/' + paper.sectionNumber}</td>
+            <td>
+              <button className="text-warning" >编辑</button>
+              <button className="text-primary" >导出成绩</button>
+            </td>
+            <td>
+              <button className="text-success" >开始答题</button>
+            </td>
+          </tr>
       )
     });
     return (
       <div>
-        <div className={this.state.isDisplayed === 'paperManage' ? '' : 'hide'}>
+        <div className={this.state.isDisplayed === 'paperManage' ? '' : 'hide '}>
           <GroupTitle titleName={this.state.groupName}/>
-          {paperList}
-          <AddPaper createPaper={this.createPaper}/>
+          <table className="table table-hover paperList">
+            <thead>
+            <tr>
+              <th>No.</th>
+              <th>试卷名称</th>
+              <th className={this.props.role === '1'? '' : 'hide '}>是否标记</th>
+              <th className={this.props.role === '1'? '' : 'hide '}>发布状态</th>
+              <th>已发布章节/总章节个数</th>
+              <th>操作</th>
+              <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            {tableBody}
+            </tbody>
+          </table>
+          <button className="btn btn-default addPaper" onClick={this.handleClick}>添加试卷</button>
         </div>
-        <div className={this.state.isDisplayed === 'operatePaper' ? '' : 'hide'}>
+        <div className={this.state.isDisplayed === 'operatePaper' ? '' : 'hide '}>
           <OperatePaper addSection={this.addSection} paperManage={this.paperManage}/>
         </div>
-        <div className={this.state.isDisplayed === 'addSection' ? '' : 'hide'}>
+        <div className={this.state.isDisplayed === 'addSection' ? '' : 'hide '}>
           <AddSection paperManage={this.paperManage}/>
         </div>
       </div>

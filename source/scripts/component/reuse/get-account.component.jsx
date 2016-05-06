@@ -37,6 +37,7 @@ var GetAccount = React.createClass({
             <ul className="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><a href="/user-center">个人中心</a></li>
               <li><a href="/dashboard">控制台</a></li>
+              <li><a href="/group">我的群组</a></li>
               <li role="separator" className="divider" />
               <li><a href="javascript:void(0)" onClick={this.handleClick}>退出</a></li>
             </ul>

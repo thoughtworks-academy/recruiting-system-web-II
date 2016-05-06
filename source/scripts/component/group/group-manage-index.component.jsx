@@ -65,28 +65,24 @@ var ManageIndex = React.createClass({
             </div>
           </div>
           <div className="invite-link col-md-12 col-sm-12 col-xs-12">
-            <div className="col-md-8"><InviteLink /></div>
-            <div className="col-md-4 ">
-              <p className="col-md-8 ">
-                是否启用:
-              </p>
-              <div className="col-md-4">
-                <Switch size="mini" name="activate" onChange={this.switchValue}/>
-              </div>
+            <InviteLink />
+            <p className="col-md-2 ">
+              是否启用:
+            </p>
+            <div className="col-md-2">
+              <Switch size="mini" name="activate" onChange={this.switchValue}/>
             </div>
           </div>
           <hr className="col-md-12 col-sm-12 col-xs-12"/>
           <div className="col-md-12 col-sm-12 col-xs-12">
-            <p className="col-md-2">
+            <p className="col-md-8">
               公告通知:
             </p>
-            <div className="col-md-4 col-md-offset-6">
-              <p className="col-md-8">
-                是否发布:
-              </p>
-              <div className="col-md-4">
-                <Switch size="mini" name="publish" onChange={this.switchValue}/>
-              </div>
+            <p className="col-md-2">
+              是否发布:
+            </p>
+            <div className="col-md-2">
+              <Switch size="mini" name="publish" onChange={this.switchValue}/>
             </div>
           </div>
           <div className="col-md-12 col-sm-12 col-xs-12">

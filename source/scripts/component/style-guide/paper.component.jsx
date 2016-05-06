@@ -9,7 +9,7 @@ var Paper = React.createClass({
       isPublished: this.props.item.isPublished,
       sectionNumber: this.props.item.sectionNumber || 10 ,
       publishedNumber: this.props.item.publishedNumber || 1,
-      role:  this.props.item.role || '2',
+      role:  this.props.item.role,
       isFinished: this.props.item.isFinished
     }
   },

@@ -103,7 +103,7 @@ var GroupManage = React.createClass ({
     return (
         <CustomizeTabs tabNames={this.state.tabNames}>
           <ManageIndex groupHash={this.props.groupHash} submitInfo={GroupAction.submitInfo}/>
-          <ManagePaper groupName={this.state.groupName} papers={this.state.papers} />
+          <ManagePaper groupName={this.state.groupName} papers={this.state.papers} role={this.props.role}/>
           <MangeMember members={this.state.members} />
           <MangeVerify preMembers={this.state.preMembers} />
           <MangeDiscussion subjects={this.state.subjects} />
