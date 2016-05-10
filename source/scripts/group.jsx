@@ -15,7 +15,7 @@ page('/:groupHash', function (ctx, next) {
 });
 
 page('/:groupHash/:action/:role', function (ctx, next) {
-  groupRouter.render(ctx.params, next);
+  groupRouter.render(ctx.params);
 });
 
 page();

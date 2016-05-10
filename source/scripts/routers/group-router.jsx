@@ -5,7 +5,7 @@ var Navigation = require('../component/navigation/navigation.component.jsx');
 var Account = require('../component/reuse/get-account.component.jsx');
 var page = require('page');
 
-function asyncRenderAction(data, next, callBack) {
+function asyncRenderAction(data, callBack) {
   var element;
   var groupHash = data.groupHash;
   var action = data.action;
@@ -29,7 +29,6 @@ function asyncRenderAction(data, next, callBack) {
               </div>
             </div>;
         callBack(element);
-        next();
       });
       break;
     case 'paper':
@@ -49,7 +48,6 @@ function asyncRenderAction(data, next, callBack) {
               </div>
             </div>;
         callBack(element);
-        next();
       });
       break;
     case 'discussion':
@@ -69,7 +67,6 @@ function asyncRenderAction(data, next, callBack) {
               </div>
             </div>;
         callBack(element);
-        next();
       });
       break;
     case 'manage':
@@ -89,7 +86,6 @@ function asyncRenderAction(data, next, callBack) {
               </div>
             </div>;
         callBack(element);
-        next();
       });
       break;
     case undefined:
@@ -99,20 +95,17 @@ function asyncRenderAction(data, next, callBack) {
         var GroupHomepage = require("../component/group/group-homepage.component.jsx");
         element = <GroupHomepage />;
         callBack(element);
-        next();
       });
       break;
     default:
-      page('http://192.168.99.100:8888/404',(ctx, next)=> {
-        next();
-      });
+      page('http://192.168.99.100:8888/404');
 
   }
 }
 
-function render(data, next) {
+function render(data) {
 
-  asyncRenderAction(data, next, function (innerElement) {
+  asyncRenderAction(data, function (innerElement) {
     var content =
         <div>
           <header>
