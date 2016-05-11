@@ -1,5 +1,4 @@
 'use strict';
-var UploadAvatar = require('../style-guide/upload-avatar.component.jsx');
 var InviteLink = require('../style-guide/invite-link.component.jsx');
 var TextBox = require('../style-guide/textbox.component.jsx');
 var Switch = require('react-bootstrap-switch');

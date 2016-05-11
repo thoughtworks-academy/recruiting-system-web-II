@@ -15,26 +15,7 @@ var GroupHomepage = React.createClass({
     return {
       groups: [],
       role: this.props.role ,
-      papers: [
-        {
-          paperName: 'pos 无尽版',
-          isMarked: true,
-          isPublished: true,
-          sectionNumber: 13,
-          publishedNumber: 6,
-          role: '2',
-          isFinished: true
-        },
-        {
-          paperName: 'pos 真·无尽版',
-          isMarked: false,
-          isPublished: false,
-          sectionNumber: 10,
-          publishedNumber: 1,
-          role: '1',
-          isFinished: false
-        }
-      ]
+      papers: []
     }
   },
   componentDidMount: function () {

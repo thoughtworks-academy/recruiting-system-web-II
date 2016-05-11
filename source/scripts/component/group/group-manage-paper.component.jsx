@@ -1,7 +1,6 @@
 'use strict';
 
 var GroupTitle = require('../style-guide/group-title.component.jsx');
-var AddPaper = require('../style-guide/add-paper.component.jsx');
 var OperatePaper = require('./group-operate-paper.component.jsx');
 var AddSection = require('./group-add-section.component.jsx');
 var GroupAction = require('../../actions/group/group-actions.js');
